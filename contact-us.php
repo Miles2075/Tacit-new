@@ -89,8 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 							<div class="icon"><span class="fa fa-phone"></span></div>
 							<div class="text">
 								<h6>Call Us</h6>
-								<a href="tel:+919898028467">+91 98980 28467</a>
-								<a href="tel:+919409025703">+91 94090 25703</a>
+								<a href="tel:+919898028467">Mr. Samir V Parikh :- +91 98980 28467</a>
+								<a href="tel:+919409025703">Mr. Devansh Parikh :- +91 94090 25703</a>
 							</div>
 						</li>
 						<li>

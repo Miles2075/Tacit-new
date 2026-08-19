@@ -36,7 +36,7 @@
 				<div class="products-single">
 
 					<div class="mega-hover">
-						<img src="images/hemtop-plus.webp" alt="Hemtop Plus" class="img-fluid">
+						<img src="images/hemtop-plus.png" alt="Hemtop Plus" class="img-fluid">
 					</div>
 
 					<h2 class="title section-title">Hemtop Plus (HEMTOP+)</h2>
@@ -46,7 +46,7 @@
 					</p>
 <div class="product-pdf-download">
 	<a 
-		href="/downloads/HEMTOP-PLUS.pdf"
+		href="downloads/HEMTOP-PLUS.pdf"
 		class="product-pdf-btn"
 		download
 	>

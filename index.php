@@ -430,132 +430,100 @@
 
 <!-- Product Start -->
 
-
-<!-- PAckage -->
-
-<section class="ourservices  st-service-area" style='background-image: url("images/tour_bg_1-2.webp");'>
+<section class="ourservices st-service-area" style='background-image: url("images/tour_bg_1-2.webp");'>
   <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-duration="2000">
     <div class="row">
       <div class="col-md-12">
-        <div class="site-heading mb-3 text-center">
-       
-         <h2 class="sec-title ">Our Products</h2>
-       </div>
-
-               <div id="service-slider22" class="owl-carousel">
-
-          <div class="post-slide">
-            <div class="product-cat-style-one">
-              <div class="thumb">
-                <!-- <img src="images/cip-detergent.webp" class="thubug" alt="CIP Alkaline Detergent"> -->
-                <div class="shape">
-                  <img src="images/39.png" class="img-fluid" alt="Image Not Found">
-                </div>
-              </div>
-<!--               <div class="info">
-                <h4><a href="cip-alkaline-detergent.php">CIP Alkaline Detergent</a></h4>
-                <p>
-                  Heavy-duty, low-foaming alkaline cleaning solution engineered for automated Clean-in-Place (CIP) systems to remove fats, proteins, oils, and organic scale in processing lines.
-                </p>
-              </div>
-              <div class="button">
-                <a href="cip-alkaline-detergent.php">
-                  <i class="fa fa-angle-right"></i>
-                  <span>Know More</span>
-                </a>
-              </div>
-            </div> -->
-          </div>
-
-          <div class="post-slide">
-            <div class="product-cat-style-one">
-              <div class="thumb">
-                <img src="images/ICC1.webp" class="thubug" alt="Hemtop Industrial Cleaner">
-                <div class="shape">
-                  <img src="images/39.png" class="img-fluid" alt="Image Not Found">
-                </div>
-              </div>
-              <div class="info">
-                <h4>
-                  <a href="hemtop-degreasing-solution.php">
-                    Hemtop Industrial Cleaner
-                  </a>
-                </h4>
-                <p>
-                  High-performance degreasing and de-oiling solution designed for 
-                  industrial cleaning. Hemtop effectively removes grease, oil, and 
-                  tough grime from equipment while maintaining a neutral pH.
-                </p>
-              </div>
-              <div class="button">
-                <a href="hemtop-degreasing-solution.php">
-                  <i class="fa fa-angle-right"></i>
-                  <span>Know More</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="post-slide">
-            <div class="product-cat-style-one">
-              <div class="thumb">
-                <img src="images/hemec4.webp" class="thubug" alt="HEMEC-4 Chemical">
-                <div class="shape">
-                  <img src="images/39.png" class="img-fluid" alt="Image Not Found">
-                </div>
-              </div>
-              <div class="info">
-                <h4><a href="hemec-4.php">HEMEC-4</a></h4>
-                <p>
-                 HEMEC-4 is a specialized chemical solution formulated for efficient cleaning and maintenance of industrial equipment, helping remove stubborn residues and ensuring improved operational hygiene.
-                </p>
-              </div>
-              <div class="button">
-                <a href="hemec-4.php">
-                  <i class="fa fa-angle-right"></i>
-                  <span>Know More</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="post-slide">
-            <div class="product-cat-style-one">
-              <div class="thumb">
-                <img src="images/hemtop-plus.webp" class="thubug" alt="HEMTOP Plus Chemical">
-                <div class="shape">
-                  <img src="images/39.png" class="img-fluid" alt="Image Not Found">
-                </div>
-              </div>
-              <div class="info">
-                <h4><a href="hemtop-plus.php">HEMTOP+</a></h4>
-                <p>
-                 High-performance cleaner formulated for pharma API equipment and industrial machinery. Effectively removes all API residues, working with hot or cold and hard or brackish water.
-                </p>
-              </div>
-              <div class="button">
-                <a href="hemtop-plus.php">
-                  <i class="fa fa-angle-right"></i>
-                  <span>Know More</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
+        <div class="site-heading mb-4 text-center">
+          <h2 class="sec-title">Our Products</h2>
         </div>
-</div>
-</div>
-</div>
-</div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center align-items-stretch">
+      <!-- Product 1: Hemtop Industrial Cleaner -->
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4 d-flex">
+        <div class="product-cat-style-one w-100">
+          <div class="thumb">
+            <img src="images/hemtop.png" class="thubug" alt="Hemtop Industrial Cleaner">
+            <div class="shape">
+              <img src="images/39.png" class="img-fluid" alt="Wave Shape">
+            </div>
+          </div>
+          <div class="info">
+            <h4>
+              <a href="hemtop-degreasing-solution.php">
+                Hemtop Industrial Cleaner
+              </a>
+            </h4>
+            <p>
+              High-performance degreasing and de-oiling solution designed for 
+              industrial cleaning. Hemtop effectively removes grease, oil, and 
+              tough grime from equipment while maintaining a neutral pH.
+            </p>
+          </div>
+          <div class="button">
+            <a href="hemtop-degreasing-solution.php">
+              <i class="fa fa-angle-right"></i>
+              <span>Know More</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2: HEMEC-4 -->
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4 d-flex">
+        <div class="product-cat-style-one w-100">
+          <div class="thumb">
+            <img src="images/hemec.png" class="thubug" alt="HEMEC-4 Chemical">
+            <div class="shape">
+              <img src="images/39.png" class="img-fluid" alt="Wave Shape">
+            </div>
+          </div>
+          <div class="info">
+            <h4><a href="hemec-4.php">HEMEC-4</a></h4>
+            <p>
+              HEMEC-4 is a specialized chemical solution formulated for efficient cleaning and maintenance of industrial equipment, helping remove stubborn residues and ensuring improved operational hygiene.
+            </p>
+          </div>
+          <div class="button">
+            <a href="hemec-4.php">
+              <i class="fa fa-angle-right"></i>
+              <span>Know More</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3: HEMTOP+ -->
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4 d-flex">
+        <div class="product-cat-style-one w-100">
+          <div class="thumb">
+            <img src="images/hemtop-plus.png" class="thubug" alt="HEMTOP Plus Chemical">
+            <div class="shape">
+              <img src="images/39.png" class="img-fluid" alt="Wave Shape">
+            </div>
+          </div>
+          <div class="info">
+            <h4><a href="hemtop-plus.php">HEMTOP+</a></h4>
+            <p>
+              High-performance cleaner formulated for pharma API equipment and industrial machinery. Effectively removes all API residues, working with hot or cold and hard or brackish water.
+            </p>
+          </div>
+          <div class="button">
+            <a href="hemtop-plus.php">
+              <i class="fa fa-angle-right"></i>
+              <span>Know More</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<!--  -->
-
-
 <!-- Product End -->
-
-
-</section><!-- floor cleaner -->
 
 
 <!-- Industries Start -->

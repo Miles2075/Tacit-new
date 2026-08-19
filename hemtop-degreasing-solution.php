@@ -37,7 +37,7 @@
 
 					<div class="mega-hover">
 						<img
-							src="images/ICC1.webp"
+							src="images/hemtop.png"
 							alt="Hemtop Industrial Cleaner"
 							class="img-fluid"
 						>
@@ -56,7 +56,7 @@
 					<!-- Product PDF Download Start -->
 					<div class="product-pdf-download">
 						<a
-							href="/downloads/HEMTOP.pdf"
+							href="downloads/HEMTOP.pdf"
 							class="product-pdf-btn"
 							download
 						>

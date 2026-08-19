@@ -35,7 +35,7 @@
 				<div class="products-single">
 
 					<div class="mega-hover">
-						<img src="images/hemec4.webp" alt="Hemec-4" class="img-fluid">
+						<img src="images/hemec.png" alt="Hemec-4" class="img-fluid">
 					</div>
 
 					<h2 class="title section-title">Hemec-4</h2>
@@ -47,7 +47,7 @@
 					</p>
 					<div class="product-pdf-download">
 	<a 
-		href="/downloads/HEMEC-4.pdf"
+		href="downloads/HEMEC-4.pdf"
 		class="product-pdf-btn"
 		download
 	>
