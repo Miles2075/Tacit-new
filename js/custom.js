@@ -118,7 +118,7 @@ $(document).ready(function() {
             if (innerEl) {
               innerEl.style.transform = "translate3d(" + innerTranslate + "px, 0, 0)";
             }
-          }      
+          }
         },
 
         touchStart: function() {
@@ -152,7 +152,7 @@ $(document).ready(function() {
     if ($(this).attr("data-background")){
       $(this).css("background-image", "url(" + $(this).data("background") + ")");
     }
-  }); 
+  });
 
   // Scroll back to top
   var progressPath = document.querySelector('.progress-wrap path');
@@ -162,7 +162,7 @@ $(document).ready(function() {
     progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
     progressPath.style.strokeDashoffset = pathLength;
     progressPath.getBoundingClientRect();
-    progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';    
+    progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
     var updateProgress = function () {
       var scroll = $(window).scrollTop();
       var height = $(document).height() - $(window).height();
@@ -170,7 +170,7 @@ $(document).ready(function() {
       progressPath.style.strokeDashoffset = progress;
     };
     updateProgress();
-    $(window).scroll(updateProgress); 
+    $(window).scroll(updateProgress);
   }
 
   var offset = 50;
@@ -181,19 +181,56 @@ $(document).ready(function() {
     } else {
       jQuery('.progress-wrap').removeClass('active-progress');
     }
-  });       
+  });
   jQuery('.progress-wrap').on('click', function(event) {
     event.preventDefault();
     jQuery('html, body').animate({scrollTop: 0}, duration);
     return false;
   });
+
+  // TACIT HOMEPAGE HERO VIDEO
+  // Inject the uploaded hero video into the first existing GSAP slide.
+  var tacitFirstSlide = document.querySelector('#tacitVerticalSlider .tacit-vfs-slide:first-child');
+  if (tacitFirstSlide) {
+    var tacitPicture = tacitFirstSlide.querySelector('.tacit-vfs-picture');
+    if (tacitPicture) {
+      var tacitVideo = document.createElement('video');
+      tacitVideo.className = 'tacit-vfs-image tacit-vfs-video';
+      tacitVideo.setAttribute('autoplay', '');
+      tacitVideo.setAttribute('muted', '');
+      tacitVideo.setAttribute('playsinline', '');
+      tacitVideo.setAttribute('loop', '');
+      tacitVideo.setAttribute('preload', 'auto');
+      tacitVideo.setAttribute('aria-hidden', 'true');
+      tacitVideo.muted = true;
+
+      var tacitSource = document.createElement('source');
+      tacitSource.src = 'videos/hero-video.mp4';
+      tacitSource.type = 'video/mp4';
+      tacitVideo.appendChild(tacitSource);
+
+      tacitPicture.innerHTML = '';
+      tacitPicture.appendChild(tacitVideo);
+
+      // Pause the video when another hero slide is active and resume it on return.
+      var tacitObserver = new MutationObserver(function () {
+        var isActive = tacitFirstSlide.classList.contains('tacit-vfs-slide-active');
+        if (isActive) {
+          var playPromise = tacitVideo.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {});
+          }
+        } else {
+          tacitVideo.pause();
+        }
+      });
+      tacitObserver.observe(tacitFirstSlide, { attributes: true, attributeFilter: ['class'] });
+    }
+  }
 });
 
 function closenav() {
   $('#navbarSupportedContent').removeClass('show');
   $('.navbar-toggler').addClass('collapsed');
   $(".navbar-toggler").attr("aria-expanded","false");
-} 
-
-
-
+}
