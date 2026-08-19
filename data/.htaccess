@@ -1,0 +1,11 @@
+# Enquiry submissions contain personal information.
+# Keep the JSON file inaccessible from the web while allowing PHP/Node
+# server-side code to read it from the filesystem.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
