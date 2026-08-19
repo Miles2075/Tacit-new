@@ -22,27 +22,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			"Reply-To: " . ($email ? $email : "noreply@tacitenterprise.com") . "\r\n" .
 			"X-Mailer: PHP/" . phpversion();
 
-		@mail($to, $email_subject, $email_body, $headers);
+		$mailSent = mail($to, $email_subject, $email_body, $headers);
 
-		$formSuccess = true;
-		$enquiryId = 'TE-' . strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 6));
-		$formMessage = "Thank you! Your enquiry has been received (Ref: $enquiryId). Our team will contact you shortly.";
+		if ($mailSent) {
+			$formSuccess = true;
+			$enquiryId = 'TE-' . strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 6));
+			$formMessage = "Thank you! Your enquiry has been received (Ref: $enquiryId). Our team will contact you shortly.";
+		} else {
+			$formSuccess = false;
+			$formMessage = "Your enquiry could not be sent from the server. Please try again or contact us directly by email.";
+		}
 
-		$isAjax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') || 
+		$isAjax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') ||
 		          (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false);
 
 		if ($isAjax) {
 			header('Content-Type: application/json');
 			echo json_encode([
-				'success' => true,
+				'success' => $formSuccess,
 				'message' => $formMessage,
-				'enquiryId' => $enquiryId
+				'enquiryId' => isset($enquiryId) ? $enquiryId : null
 			]);
 			exit;
 		}
 	} else {
 		$formMessage = "Please fill in all required fields (Name and Phone Number).";
-		$isAjax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') || 
+		$isAjax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') ||
 		          (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false);
 
 		if ($isAjax) {
@@ -202,8 +207,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			const subject = subjectElem ? subjectElem.value : "General Enquiry";
 			const message = document.getElementById('enqMessage') ? document.getElementById('enqMessage').value.trim() : '';
 
-			if (!name || (!phone && !email)) {
-				showAlert(false, "Please fill in your name and contact details.");
+			if (!name || !phone) {
+				showAlert(false, "Please fill in your name and phone number.");
 				return;
 			}
 
@@ -211,14 +216,19 @@ document.addEventListener("DOMContentLoaded", function () {
 			submitBtn.disabled = true;
 			submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> Sending...';
 
+			// Send standard form data so PHP can read it from $_POST.
+			const formData = new FormData(form);
+			if (!formData.get('subject')) {
+				formData.set('subject', subject);
+			}
+
 			fetch('contact-us.php', {
 				method: 'POST',
 				headers: {
-					'Content-Type': 'application/json',
 					'Accept': 'application/json',
 					'X-Requested-With': 'XMLHttpRequest'
 				},
-				body: JSON.stringify({ name, phone, email, subject, message })
+				body: formData
 			})
 			.then(response => {
 				if (!response.ok) {
@@ -236,8 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			})
 			.catch(err => {
 				console.error("Enquiry submission error:", err);
-				// Fallback to standard form submission if AJAX fetch fails
-				form.submit();
+				showAlert(false, "Unable to submit the enquiry right now. Please try again.");
 			})
 			.finally(() => {
 				submitBtn.disabled = false;
@@ -273,4 +282,3 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <?php include('partials/footer.php'); ?>
-
