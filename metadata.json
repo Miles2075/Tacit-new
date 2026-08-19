@@ -1,0 +1,8 @@
+{
+  "name": "Tacit Enterprise",
+  "description": "Industrial chemical solutions and specialty cleaning formulations web application",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
